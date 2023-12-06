@@ -1,0 +1,24 @@
+<div class="card">
+  <div class="card-header">
+    <h4 class="text-center">{{ actor.nombre }}</h4>
+  </div>
+
+  <div class="card-body">
+    <img
+      [src]="actor.foto"
+      class="card-img-top"
+      [alt]="actor.nombre"
+      height="350"
+    />
+    <p class="card-text">
+      {{ actor.biografia }}
+    </p>
+    <hr>
+    <small class="text-body-secondary"
+      >Fecha Nacimiento:
+      <span class="badge bg-success rounded-pill mx-1">{{
+        actor.fechaNacimiento | date
+      }}</span></small
+    >
+  </div>
+</div>

@@ -1,0 +1,9 @@
+<h2 class="text-center mt-1 fs-1">Generos</h2>
+<hr />
+<div class="d-flex flex-wrap justify-content-center">
+  @for (genero of generos; track $index) {
+  <span class="badge bg-primary rounded-pill fs-4 m-1">{{
+    genero.nombre
+  }}</span>
+  }
+</div>

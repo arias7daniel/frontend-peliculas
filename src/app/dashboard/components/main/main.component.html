@@ -1,0 +1,11 @@
+<app-carousel [peliculas]="peliculas"></app-carousel>
+
+<h2 class="text-center mt-2 fs-1">Peliculas</h2>
+<hr />
+
+<div class="grid">
+  @for (peli of peliculas; track $index) {
+  <app-card [peli]="peli"></app-card>
+
+  }
+</div>

@@ -1,0 +1,8 @@
+<h2 class="text-center mt-2 fs-1">Actores</h2>
+<hr />
+
+<div class="grid2">
+  @for (actor of actores; track $index) {
+  <app-card-actor [actor]="actor"></app-card-actor>
+  }
+</div>

@@ -1,0 +1,48 @@
+<div class="card mb-3">
+  <div class="d-flex">
+    <div class="w-100">
+      <img
+        [src]="peli.poster"
+        class="rounded-start"
+        [alt]="peli.nombre"
+        height="100%"
+        width="100%"
+      />
+    </div>
+    <div class="w-100">
+      <div class="card-body">
+        <h3 class="card-title">{{ peli.nombre }}</h3>
+        <p class="card-text">
+          {{ peli.descripcion }}
+        </p>
+        <hr />
+        <p class="card-text">
+          <small class="text-body-secondary">
+            Estreno:
+            <span class="badge bg-success rounded-pill">{{
+              peli.fechaEstreno | date
+            }}</span></small
+          >
+        </p>
+        <hr />
+        <div class="d-flex flex-wrap">
+          <small class="text-body-secondary"
+            >Actores: @for (actor of actores; track $index) {
+            <span class="badge bg-primary rounded-pill mx-1">{{
+              actor.nombre
+            }}</span>
+            }
+          </small>
+        </div>
+        <hr />
+        <small class="text-body-secondary"
+          >Generos: @for (genero of generos; track $index) {
+          <span class="badge text-dark bg-dark-subtle rounded-pill mx-1">{{
+            genero.nombre
+          }}</span>
+          }
+        </small>
+      </div>
+    </div>
+  </div>
+</div>
