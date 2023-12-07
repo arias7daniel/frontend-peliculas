@@ -8,7 +8,7 @@ import { Observable, catchError, of, tap, switchMap, map } from 'rxjs';
 })
 export class PeliculaService {
   private http = inject(HttpClient);
-  protected apiUrl: string = 'https://api-pelis-2wl7.onrender.com';
+  protected apiUrl: string = 'https://api-rest-peliculas-git-master-ariasdaniel7.vercel.app';
   protected token: string = '';
 
 
