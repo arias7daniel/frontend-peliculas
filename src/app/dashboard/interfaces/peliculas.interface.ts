@@ -14,8 +14,8 @@ export interface Pelicula {
   enCines:      boolean;
   trailer:      string;
   poster:       string;
-  generos:      Actore[];
-  actores:      Actore[];
+  generos:      Genero[];
+  actores:      Actor[];
 }
 
 export interface Actore {

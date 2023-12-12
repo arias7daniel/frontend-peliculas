@@ -1,4 +1,4 @@
-<h1 class="text-center">Crear Pelicula</h1>
+<h1 class="text-center">Editar Pelicula</h1>
 <hr />
 <form [formGroup]="myForm" (ngSubmit)="onSave()">
   <div class="d-flex gap-3">
@@ -9,6 +9,7 @@
         id="floatingInput"
         placeholder=""
         formControlName="nombre"
+        [value]="pelicula?.nombre"
       />
       <label for="floatingInput">Nombre* </label>
     </div>
@@ -19,6 +20,7 @@
         id="floatingInputCalendar"
         placeholder=""
         formControlName="fechaEstreno"
+        [value]="'2023-10-01'"
       />
       <label for="floatingInputCalendar">Fecha de estreno* </label>
     </div>
@@ -30,6 +32,7 @@
       id="floatingTextarea"
       style="height: 200px"
       formControlName="descripcion"
+      [value]="pelicula?.descripcion"
     ></textarea>
     <label for="floatingTextarea">Descripción*</label>
   </div>
@@ -40,6 +43,7 @@
       id="floatingInputImagen"
       placeholder=""
       formControlName="imagen"
+      [value]="pelicula?.imagen"
     />
     <label for="floatingInputImagen">Url Imagen* </label>
   </div>
@@ -51,19 +55,31 @@
         id="floatingInputTaquilla"
         placeholder=""
         formControlName="taquilla"
+        [value]="pelicula?.taquilla"
       />
       <label for="floatingInputTaquilla">Taquilla* </label>
     </div>
+
     <div class="form-floating w-100 mt-3">
+
       <select
         class="form-select"
         aria-label="Default select example"
         id="floatingInputCines"
         formControlName="enCines"
       >
-        <option value="" selected>--seleccionar--</option>
-        @for (dato of datosSeleccion; track $index) {
-        <option [value]="dato">{{ dato }}</option>
+        @if(pelicula?.enCines){
+        <option value="">--seleccionar--</option>
+        <option [value]="datosSeleccion[0]" selected>
+          {{ datosSeleccion[0] }}
+        </option>
+        <option [value]="datosSeleccion[2]">{{ datosSeleccion[1] }}</option>
+        }@else {
+        <option value="">--seleccionar--</option>
+        <option [value]="datosSeleccion[0]">{{ datosSeleccion[0] }}</option>
+        <option [value]="datosSeleccion[1]" selected>
+          {{ datosSeleccion[1] }}
+        </option>
         }
       </select>
       <label for="floatingInputCines">En cines* </label>
@@ -76,6 +92,7 @@
       id="floatingInputTrailer"
       placeholder=""
       formControlName="trailer"
+      [value]="pelicula?.trailer"
     />
     <label for="floatingInputTrailer">Url trailer* </label>
   </div>
@@ -86,6 +103,7 @@
       id="floatingInputPoster"
       placeholder=""
       formControlName="poster"
+      [value]="pelicula?.poster"
     />
     <label for="floatingInputPoster">Url poster* </label>
   </div>
@@ -93,7 +111,22 @@
   <div class="mt-3">
     <label class="mb-3">Generos: </label>
     <div class="d-flex flex-wrap gap-3">
-      @for (genero of generosApi; track $index) {
+      @for (genero of generos; track $index) { @if (seleccionGeneros(genero)) {
+
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          [value]="genero.nombre"
+          [id]="genero._id"
+          (click)="verificarGeneros(genero)"
+          checked
+        />
+        <label class="form-check-label" [for]="genero._id">
+          {{ genero.nombre }}
+        </label>
+      </div>
+      }@else {
       <div class="form-check">
         <input
           class="form-check-input"
@@ -106,9 +139,9 @@
           {{ genero.nombre }}
         </label>
       </div>
-      }@empty {
+      } }@empty {
       <div class="alert alert-warning w-100 text-center" role="alert">
-        No hay actores!
+        No hay generos!
       </div>
       }
     </div>
@@ -117,7 +150,21 @@
   <div class="mt-3">
     <label class="mb-3">Actores: </label>
     <div class="d-flex flex-wrap gap-3">
-      @for (actor of actores; track $index) {
+      @for (actor of actores; track $index) { @if (seleccionActores(actor)) {
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          [value]="actor.nombre"
+          [id]="actor._id"
+          (click)="verificarActores(actor)"
+          checked
+        />
+        <label class="form-check-label" [for]="actor._id">
+          {{ actor.nombre }}
+        </label>
+      </div>
+      }@else {
       <div class="form-check">
         <input
           class="form-check-input"
@@ -130,13 +177,14 @@
           {{ actor.nombre }}
         </label>
       </div>
-      }@empty {
+      } }@empty {
       <div class="alert alert-warning w-100 text-center" role="alert">
         No hay actores!
       </div>
       }
     </div>
   </div>
+
   @if (invalido === 'incompleto') {
   <div
     class="alert alert-danger d-flex align-items-center justify-content-center text-center mt-3"
@@ -149,9 +197,10 @@
     class="alert alert-success d-flex align-items-center justify-content-center text-center mt-3"
     role="alert"
   >
-    <div>Pelicula creada correctamente</div>
+    <div>Pelicula editada correctamente</div>
   </div>
   }
+
   <div class="d-flex justify-content-end mt-3">
     <button type="submit" class="btn btn-success fs-5 fw-bold">Crear</button>
   </div>

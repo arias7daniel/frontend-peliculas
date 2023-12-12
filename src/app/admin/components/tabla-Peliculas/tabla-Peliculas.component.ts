@@ -13,6 +13,7 @@ import { Router, RouterModule } from '@angular/router';
   imports: [
     CommonModule,
     NgbHighlight,
+    RouterModule
   ],
   templateUrl: './tabla-Peliculas.component.html',
   styleUrl: './tabla-Peliculas.component.css',

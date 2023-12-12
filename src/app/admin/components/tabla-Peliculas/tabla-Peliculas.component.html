@@ -1,5 +1,5 @@
 <div class="mb-3 d-flex align-items-center justify-content-center">
-  <label style="width: 150px;">Buscar pelicula:</label>
+  <label style="width: 150px">Buscar pelicula:</label>
   <input
     #input
     class="form-control"
@@ -32,7 +32,7 @@
         ></ngb-highlight>
       </td>
       <td class="text-center">
-        <button class="btn btn-warning">
+        <a [routerLink]="['./editar', peli._id]" class="btn btn-warning">
           <div class="d-flex justify-content-center align-items-center">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -51,7 +51,7 @@
               /></svg
             >Editar
           </div>
-        </button>
+        </a>
       </td>
       <td class="text-center">
         <button class="btn btn-danger" (click)="eliminarPelicula(peli._id)">

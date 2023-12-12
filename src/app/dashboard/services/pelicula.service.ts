@@ -36,6 +36,17 @@ export class PeliculaService {
     );
   }
 
+  public obtenerPelicula(id: string): Observable<Pelicula | undefined> {
+    return this.obtenerToken().pipe(
+      switchMap(() => {
+        const headers = new HttpHeaders().set('Authorization', `Bearer ${this.token}`);
+        return this.http.get<Pelicula>(`${this.apiUrl}/api/peliculas/${id}`, { headers }).pipe(
+          catchError(error => of(undefined))
+        );
+      })
+    );
+  }
+
   public obtenerActoresPorPelicula(pelicula: Pelicula): Observable<Actor[]> {
     return this.obtenerToken().pipe(
       switchMap(() => {
@@ -45,11 +56,29 @@ export class PeliculaService {
     );
   }
 
+  public obtenerActoresPorPeliculaById(id: string): Observable<Actor[]> {
+    return this.obtenerToken().pipe(
+      switchMap(() => {
+        const headers = new HttpHeaders().set('Authorization', `Bearer ${this.token}`);
+        return this.http.get<Actor[]>(`${this.apiUrl}/api/peliculas/${id}/actores`, { headers });
+      })
+    );
+  }
+
   public obtenerGenerosPorPelicula(pelicula: Pelicula): Observable<Genero[]> {
     return this.obtenerToken().pipe(
       switchMap(() => {
         const headers = new HttpHeaders().set('Authorization', `Bearer ${this.token}`);
         return this.http.get<Genero[]>(`${this.apiUrl}/api/peliculas/${pelicula?._id}/generos`, { headers });
+      })
+    );
+  }
+
+  public obtenerGenerosPorPeliculaById(id: string): Observable<Genero[]> {
+    return this.obtenerToken().pipe(
+      switchMap(() => {
+        const headers = new HttpHeaders().set('Authorization', `Bearer ${this.token}`);
+        return this.http.get<Genero[]>(`${this.apiUrl}/api/peliculas/${id}/generos`, { headers });
       })
     );
   }
@@ -88,10 +117,18 @@ export class PeliculaService {
   public agregarPelicula(pelicula: Pelicula): Observable<Pelicula> {
     return this.obtenerToken().pipe(
       switchMap(() => {
-        console.log(this.token);
 
         const headers = new HttpHeaders().set('Authorization', `Bearer ${this.token}`);
         return this.http.post<Pelicula>(`${this.apiUrl}/api/peliculas/crear`, pelicula, { headers })
+      })
+    );
+  }
+
+  public actualizarPelicula(id: string, pelicula: Pelicula): Observable<Pelicula> {
+    return this.obtenerToken().pipe(
+      switchMap(() => {
+        const headers = new HttpHeaders().set('Authorization', `Bearer ${this.token}`);
+        return this.http.put<Pelicula>(`${this.apiUrl}/api/peliculas/actualizar/${id}`, pelicula, { headers })
       })
     );
   }

@@ -34,6 +34,10 @@ export const routes: Routes = [
             loadComponent: () => import('./admin/pages/crear-pelicula/crear-pelicula.component'),
           },
           {
+            path: 'editar/:id',
+            loadComponent: () => import('./admin/pages/edit-pelicula/edit-pelicula.component'),
+          },
+          {
             path: '',
             loadComponent: () => import('./admin/pages/peliculas/peliculas.component'),
             pathMatch: 'full',
