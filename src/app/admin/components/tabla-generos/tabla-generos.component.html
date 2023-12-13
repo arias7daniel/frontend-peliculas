@@ -12,7 +12,6 @@
   <thead>
     <tr>
       <th scope="col" class="text-center">#</th>
-      <th scope="col" class="text-center">id</th>
       <th scope="col" class="text-center">Nombre</th>
       <th scope="col" class="text-center">Editar</th>
       <th scope="col" class="text-center">Eliminar</th>
@@ -22,9 +21,6 @@
     @for (genero of generos; track genero.nombre; let i = $index) {
     <tr>
       <th class="text-center">{{ i + 1 }}</th>
-      <td class="text-center">
-        <span>{{ genero._id }}</span>
-      </td>
       <td class="text-center">
         <ngb-highlight
           [result]="genero.nombre"
