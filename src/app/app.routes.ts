@@ -27,15 +27,14 @@ export const routes: Routes = [
       {
         path: 'peliculas',
         title: 'Peliculas',
-        loadComponent: () => import('./admin/pages/admin/admin.component'),
         children: [
           {
             path: 'crear',
-            loadComponent: () => import('./admin/pages/crear-pelicula/crear-pelicula.component'),
+            loadComponent: () => import('./admin/pages/peliculas/crear-pelicula/crear-pelicula.component'),
           },
           {
             path: 'editar/:id',
-            loadComponent: () => import('./admin/pages/edit-pelicula/edit-pelicula.component'),
+            loadComponent: () => import('./admin/pages/peliculas/edit-pelicula/edit-pelicula.component'),
           },
           {
             path: '',
@@ -45,9 +44,57 @@ export const routes: Routes = [
         ],
       },
       {
+        path: 'generos',
+        title: 'Generos',
+        children: [
+          {
+            path: 'crear',
+            loadComponent: () => import('./admin/pages/generos/crear/crear.component'),
+          },
+          {
+            path: 'editar/:id',
+            loadComponent: () => import('./admin/pages/generos/crear/crear.component'),
+          },
+          {
+            path: '',
+            loadComponent: () => import('./admin/pages/generos/generos.component'),
+            pathMatch: 'full',
+          },
+        ],
+      },
+      {
+        path: 'actores',
+        title: 'Actores',
+        children: [
+          {
+            path: 'crear',
+            loadComponent: () => import('./admin/pages/actores/crear/crear.component'),
+          },
+          {
+            path: 'editar/:id',
+            loadComponent: () => import('./admin/pages/actores/crear/crear.component'),
+          },
+          {
+            path: '',
+            loadComponent: () => import('./admin/pages/actores/actores.component'),
+            pathMatch: 'full',
+          },
+        ],
+      },
+      {
+        path: '',
+        title: 'Admin',
+        loadComponent: () => import('./admin/pages/admin/admin.component'),
+        pathMatch: 'full',
+      },
+      {
         path: '**',
-        redirectTo: 'peliculas'
+        redirectTo: ''
       }
     ]
   },
+  {
+    path: '**',
+    redirectTo: ''
+  }
 ];

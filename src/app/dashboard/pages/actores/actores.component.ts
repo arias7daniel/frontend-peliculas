@@ -2,7 +2,7 @@ import { CardActorComponent } from './../../components/cardActor/cardActor.compo
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Actor } from '../../interfaces/peliculas.interface';
-import { PeliculaService } from '../../services/pelicula.service';
+import { PeliculaService } from '../../../services/pelicula.service';
 
 @Component({
   selector: 'app-actores',

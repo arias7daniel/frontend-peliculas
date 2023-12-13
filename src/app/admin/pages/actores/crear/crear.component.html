@@ -1,0 +1,74 @@
+<h1 class="text-center">{{ titulo }}</h1>
+<hr />
+
+<form [formGroup]="myForm" (ngSubmit)="onSave()">
+  <div class="d-flex gap-3">
+    <div class="form-floating w-100">
+      <input
+        type="text"
+        class="form-control"
+        id="floatingInput"
+        placeholder=""
+        formControlName="nombre"
+      />
+      <label for="floatingInput">Nombre* </label>
+    </div>
+    <div class="form-floating w-100">
+      <input
+        type="date"
+        class="form-control"
+        id="floatingInputCalendar"
+        placeholder=""
+        formControlName="fechaNacimiento"
+      />
+      <label for="floatingInputCalendar">Fecha de estreno* </label>
+    </div>
+  </div>
+  <div class="form-floating mt-3">
+    <textarea
+      class="form-control"
+      placeholder="Leave a comment here"
+      id="floatingTextarea"
+      style="height: 200px"
+      formControlName="biografia"
+    ></textarea>
+    <label for="floatingTextarea">Descripción*</label>
+  </div>
+  <div class="form-floating w-100 mt-3">
+    <input
+      type="text"
+      class="form-control"
+      id="floatingInputImagen"
+      placeholder=""
+      formControlName="foto"
+    />
+    <label for="floatingInputImagen">Url Imagen* </label>
+  </div>
+  @if (valido === 'invalido') {
+  <div
+    class="alert alert-danger d-flex align-items-center justify-content-center text-center mt-3"
+    role="alert"
+  >
+    <div>Complete todos los campos</div>
+  </div>
+  }@else if(valido === 'completado'){
+  <div
+    class="alert alert-success d-flex align-items-center justify-content-center text-center mt-3"
+    role="alert"
+  >
+    <div>Actor creado correctamente</div>
+  </div>
+  }@else if(valido === 'editado'){
+  <div
+    class="alert alert-success d-flex align-items-center justify-content-center text-center mt-3"
+    role="alert"
+  >
+    <div>Actor editado correctamente</div>
+  </div>
+  }
+  <div class="d-flex justify-content-end mt-3">
+    <button type="submit" class="btn btn-success fs-5 fw-bold">
+      {{ textoBTN }}
+    </button>
+  </div>
+</form>

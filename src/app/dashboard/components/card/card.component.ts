@@ -1,7 +1,7 @@
 import { Actor, Genero, Pelicula } from './../../interfaces/peliculas.interface';
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, Input, OnInit, inject } from '@angular/core';
-import { PeliculaService } from '../../services/pelicula.service';
+import { PeliculaService } from '../../../services/pelicula.service';
 
 @Component({
   selector: 'app-card',

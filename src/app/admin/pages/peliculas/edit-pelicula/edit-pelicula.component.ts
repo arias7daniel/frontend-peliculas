@@ -1,9 +1,9 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { Actor, Genero, Pelicula } from '../../../dashboard/interfaces/peliculas.interface';
+import { Actor, Genero, Pelicula } from '../../../../dashboard/interfaces/peliculas.interface';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { PeliculaService } from '../../../dashboard/services/pelicula.service';
+import { PeliculaService } from '../../../../services/pelicula.service';
 import { delay, switchMap } from 'rxjs';
 
 @Component({

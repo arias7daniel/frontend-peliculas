@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
-import { Api, Pelicula, Actor, Genero } from '../interfaces/peliculas.interface';
+import { Api, Pelicula, Actor, Genero } from '../dashboard/interfaces/peliculas.interface';
 import { Observable, catchError, of, tap, switchMap, map } from 'rxjs';
 
 @Injectable({
@@ -132,5 +132,4 @@ export class PeliculaService {
       })
     );
   }
-
 }

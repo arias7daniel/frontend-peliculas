@@ -1,7 +1,7 @@
 import { Pelicula } from './../../../dashboard/interfaces/peliculas.interface';
 import { AsyncPipe, CommonModule, DecimalPipe } from '@angular/common';
 import { ChangeDetectionStrategy, Component, OnInit, PipeTransform } from '@angular/core';
-import { PeliculaService } from '../../../dashboard/services/pelicula.service';
+import { PeliculaService } from '../../../services/pelicula.service';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { NgbHighlight } from '@ng-bootstrap/ng-bootstrap';
 import { Router, RouterModule } from '@angular/router';

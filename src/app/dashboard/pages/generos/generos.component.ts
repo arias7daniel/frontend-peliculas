@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Genero } from '../../interfaces/peliculas.interface';
-import { PeliculaService } from '../../services/pelicula.service';
+import { PeliculaService } from '../../../services/pelicula.service';
 
 @Component({
   selector: 'app-generos',

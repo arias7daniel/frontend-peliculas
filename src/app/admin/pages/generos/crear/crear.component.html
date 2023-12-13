@@ -1,0 +1,42 @@
+<h1 class="text-center">{{ titulo }}</h1>
+<hr />
+<form [formGroup]="myForm" (ngSubmit)="onSave()">
+  <div class="form-floating w-100">
+    <input
+      type="text"
+      class="form-control"
+      id="floatingInput"
+      placeholder=""
+      [value]="genero?.nombre"
+      formControlName="nombre"
+    />
+    <label for="floatingInput">Nombre* </label>
+  </div>
+  <div class="d-flex justify-content-end mt-3">
+    <button type="submit" class="btn btn-success fs-5 fw-bold">
+      {{ textoBtn }}
+    </button>
+  </div>
+  @if (valido === 'invalido') {
+  <div
+    class="alert alert-danger d-flex align-items-center justify-content-center text-center mt-3"
+    role="alert"
+  >
+    <div>Complete todos los campos</div>
+  </div>
+  }@else if(valido === 'completado'){
+  <div
+    class="alert alert-success d-flex align-items-center justify-content-center text-center mt-3"
+    role="alert"
+  >
+    <div>Genero creado correctamente</div>
+  </div>
+  }@else if(valido === 'editado'){
+  <div
+    class="alert alert-success d-flex align-items-center justify-content-center text-center mt-3"
+    role="alert"
+  >
+    <div>Genero editado correctamente</div>
+  </div>
+  }
+</form>

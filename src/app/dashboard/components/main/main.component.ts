@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, OnInit, inject } from '@angular/core';
-import { PeliculaService } from '../../services/pelicula.service';
+import { PeliculaService } from '../../../services/pelicula.service';
 import { Actor, Genero, Pelicula } from '../../interfaces/peliculas.interface';
 import { CarouselComponent } from '../../../shared/components/carousel/carousel.component';
 import { CardComponent } from '../card/card.component';
