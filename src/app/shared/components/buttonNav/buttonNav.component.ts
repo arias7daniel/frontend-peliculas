@@ -17,7 +17,7 @@ import { RouterModule } from '@angular/router';
 })
 export class ButtonNavComponent {
 
-  public rutas = routes.flat().filter(ruta => ruta && ruta.path != '' && !ruta.path?.includes('admin'));
+  public rutas = routes.flat().filter(ruta => ruta && ruta.path != '' && !ruta.path?.includes('admin') && !ruta.path?.includes('**'));
 
   constructor(private offcanvasService: NgbOffcanvas) {
 
