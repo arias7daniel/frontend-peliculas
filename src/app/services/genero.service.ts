@@ -8,7 +8,7 @@ import { Api, Genero } from '../dashboard/interfaces/peliculas.interface';
 })
 export class GeneroService {
   private http = inject(HttpClient);
-  protected apiUrl: string = 'https://api-rest-peliculas-git-master-ariasdaniel7.vercel.app';
+  protected apiUrl: string = 'https://api-rest-git-express-ariasdaniel7.vercel.app';
   protected token: string = '';
 
   constructor() { }

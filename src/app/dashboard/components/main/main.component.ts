@@ -1,12 +1,9 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, OnInit, inject } from '@angular/core';
 import { PeliculaService } from '../../../services/pelicula.service';
-import { Actor, Genero, Pelicula } from '../../interfaces/peliculas.interface';
+import { Pelicula } from '../../interfaces/peliculas.interface';
 import { CarouselComponent } from '../../../shared/components/carousel/carousel.component';
 import { CardComponent } from '../card/card.component';
-import { CardActorComponent } from '../cardActor/cardActor.component';
-import GenerosComponent from '../../pages/generos/generos.component';
-import ActoresComponent from '../../pages/actores/actores.component';
 
 @Component({
   selector: 'app-main-principal',
